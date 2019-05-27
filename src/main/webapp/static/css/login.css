@@ -1,0 +1,11 @@
+body {
+    background-size:cover;
+    background: #CCCCCC url(background.webp) no-repeat fixed center center;
+}
+
+.col-center-block {
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
