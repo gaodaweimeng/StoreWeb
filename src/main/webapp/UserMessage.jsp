@@ -45,8 +45,7 @@
                     while(it.hasNext()) {
                         p = it.next();
 
-                    assert p != null;
-                    %>
+                    assert p != null;%>
 
                 <tr bgcolor="" height="25">
                     <td width="10%">

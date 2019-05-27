@@ -1,4 +1,4 @@
-<%@ page import="Bean.User" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: zhouzhipeng
   Date: 2019-05-27

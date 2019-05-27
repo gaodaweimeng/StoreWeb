@@ -4,31 +4,26 @@ import Bean.Place;
 import Bean.User;
 import Util.DataAccess;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class PlaceDAO {
-    public ArrayList<Place> showPlace(User user){
+    public List<Place> showPlace(User user){
+        List<Place> place_list = new ArrayList<>();
         DataAccess dataAccess = new DataAccess();
         Connection con = dataAccess.getConnection();
 
-        PreparedStatement pst;
-        ResultSet rs;
-
         String Email = user.getEmail();
-
-        String sql = "select Place.id,Place.place,Place.email from StoreWeb.Place,StoreWeb.User where User.email=Place.email and User.email=' "+Email+" '";
-
-        ArrayList<Place> place_list = new ArrayList<>();
+        String sql = "select id , Place.email, place from StoreWeb.Place,StoreWeb.User where Place.email=User.email and Place.email=' "+Email+" ' ";
+        Statement stmt=null;
+        ResultSet rs=null;
+        Place place;
         try{
-            pst = con.prepareStatement(sql);
-            rs = pst.executeQuery();
-
-            if(rs.next()){
-                Place place = new Place();
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(sql);
+            while(rs.next()) {
+                place = new Place();
                 place.setId(rs.getInt("id"));
                 place.setEmail(rs.getString("email"));
                 place.setPlace(rs.getString("place"));
@@ -36,6 +31,20 @@ public class PlaceDAO {
             }
         }catch(SQLException ex){
             ex.printStackTrace();
+        }finally{
+            try{
+                if(rs!=null){
+                    rs.close();
+                }
+                if(stmt!=null){
+                    stmt.close();
+                }
+                if(con!=null){
+                    con.close();
+                }
+            }catch(Exception e2){
+                e2.printStackTrace();
+            }
         }
         return place_list;
     }

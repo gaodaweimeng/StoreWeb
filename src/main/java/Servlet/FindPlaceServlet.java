@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 
 @WebServlet(name = "FindPlaceServlet")
@@ -24,7 +25,7 @@ public class FindPlaceServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         User user = (User)session.getAttribute("User");
-        ArrayList<Place> list=new PlaceDAO().showPlace(user);
+        List<Place> list=new PlaceDAO().showPlace(user);
         request.setAttribute("personal_place", list);
         request.getRequestDispatcher("/UserMessage.jsp").forward(request,response);
     }
