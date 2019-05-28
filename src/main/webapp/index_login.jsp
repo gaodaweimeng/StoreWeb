@@ -1,4 +1,7 @@
-<%--
+<%@ page import="Bean.Product" %>
+<%@ page import="Dao.ProductDAO" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.Iterator" %><%--
   Created by IntelliJ IDEA.
   User: zhouzhipeng
   Date: 2019-05-27
@@ -32,6 +35,53 @@
                     </ul>
                 </div>
             </nav>
+        </div>
+
+        <div class="col-sm-6">
+            <table cellspacing="1" cellpadding="0" width="40%" border="0">
+                <tbody>
+                    <tr bgcolor="aqua" height="20">
+                        <td><div align="center">商品号</div></td>
+                        <td><div align="center">商品名字</div></td>
+                        <td><div align="center">商品价格</div></td>
+                        <td><div align="center">商品大小</div></td>
+                        <td><div align="center">商品颜色</div></td>
+                        <td><div align="center">商品照片</div></td>
+                    </tr>
+                    <%
+                        ProductDAO product = new ProductDAO();
+                        ArrayList<Product> list;
+                        list = product.ShowAllProduct();
+                        Iterator it = list.iterator();
+                        Product p;
+                        while(it.hasNext()) {
+                            p = (Product) it.next();
+
+                        assert p !=null;%>
+
+                    <tr bgcolor="f3f3f3" height="25">
+                        <td width="30%">
+                            <div align="center"><%=p.getId()%></div>
+                        </td>
+                        <td width="30%">
+                            <div align="center"><%=p.getName()%></div>
+                        </td>
+                        <td width="30%">
+                            <div align="center"><%=p.getPrice()%></div>
+                        </td>
+                        <td width="30%">
+                            <div align="center"><%=p.getSize()%></div>
+                        </td>
+                        <td width="30%">
+                            <div align="center"><%=p.getColor()%></div>
+                        </td>
+                        <td width="30%">
+                            <div align="center"><%=p.getPhoto()%></div>
+                        </td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

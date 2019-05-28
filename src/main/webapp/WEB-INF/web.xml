@@ -29,4 +29,13 @@
         <servlet-name>FindPlaceServlet</servlet-name>
         <url-pattern>/findPlace</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ProductHandlerServlet</servlet-name>
+        <servlet-class>Servlet.ProductHandlerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductHandlerServlet</servlet-name>
+        <url-pattern>/product_handler</url-pattern>
+    </servlet-mapping>
 </web-app>

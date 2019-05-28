@@ -13,9 +13,8 @@ public class PlaceDAO {
         List<Place> place_list = new ArrayList<>();
         DataAccess dataAccess = new DataAccess();
         Connection con = dataAccess.getConnection();
-
         String Email = user.getEmail();
-        String sql = "select id , Place.email, place from StoreWeb.Place,StoreWeb.User where Place.email=User.email and Place.email=' "+Email+" ' ";
+        String sql = "select id,Place.email,place from Place,User where User.email=Place.email and Place.email='"+Email+"'";
         Statement stmt=null;
         ResultSet rs=null;
         Place place;
@@ -23,15 +22,12 @@ public class PlaceDAO {
             stmt = con.createStatement();
             rs = stmt.executeQuery(sql);
             while(rs.next()) {
-                place = new Place();
-                place.setId(rs.getInt("id"));
-                place.setEmail(rs.getString("email"));
-                place.setPlace(rs.getString("place"));
+                place = (Place) tableToClass(rs);
                 place_list.add(place);
             }
-        }catch(SQLException ex){
+        } catch(Exception ex){
             ex.printStackTrace();
-        }finally{
+        } finally{
             try{
                 if(rs!=null){
                     rs.close();
@@ -47,5 +43,14 @@ public class PlaceDAO {
             }
         }
         return place_list;
+    }
+
+    public static Object tableToClass(ResultSet rs) throws Exception {
+        // TODO Auto-generated method stub
+        Place place = new Place();
+        place.setId(rs.getInt("id"));
+        place.setEmail(rs.getString("email"));
+        place.setPlace(rs.getString("place"));
+        return place;
     }
 }

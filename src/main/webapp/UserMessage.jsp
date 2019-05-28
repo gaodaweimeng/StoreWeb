@@ -27,15 +27,11 @@
 <body>
 <div class="container">
     <div class="row myCenter">
-        <div class="col-xs-4">
-            个人信息
-        </div>
-        <div class="col-xs-6">
+        <div class="row-md-6">
             <center>
             <table cellspacing="1" cellpadding="0" width="40%" border="0">
                 <tbody>
                 <tr bgcolor="aqua" height="20">
-                    <td><div align="center">编号</div></td>
                     <td><div align="center">地址</div></td>
                 </tr>
                 <%
@@ -47,18 +43,20 @@
 
                     assert p != null;%>
 
-                <tr bgcolor="" height="25">
-                    <td width="10%">
-                        <div align="center"><%=p.getId()%></div>
-                    </td>
-                    <td width="15%">
+                <tr bgcolor="f3f3f3" height="25">
+                    <td width="30%">
                         <div align="center"><%=p.getPlace()%></div>
                     </td>
                 </tr>
+
                 <% } %>
                 </tbody>
             </table>
             </center>
+        </div>
+
+        <div class="row-md-6">
+            <a href="#">添加地址</a>
         </div>
     </div>
 </div>
