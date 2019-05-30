@@ -27,7 +27,7 @@ public class SearchServlet extends HttpServlet {
 
         String search_word ='%'+request.getParameter("search_product")+'%';
 
-        String sql="select Product.id,name,type_rela_id,price,size,color,photo from Product where Product.name like '"+search_word+"'";
+        String sql="select Product.id,name,type_rela_id,price,size,color,photo from Product where Product.name like '"+search_word+"' or Product.color like'"+search_word+"'";
 
         ArrayList<Product> list = new ArrayList<>();
         Product product;

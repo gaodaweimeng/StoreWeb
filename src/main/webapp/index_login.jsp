@@ -99,7 +99,7 @@
                         <div align="center">${p.color}</div>
                     </td>
                     <td width="10%">
-                        <div align="center">${p.photo}</div>
+                        <img height="50" hspace="0" src="<%=path%>/static/images/product/${p.photo}" width="100" border="0"/>
                     </td>
                     <td width="10%">
                         <div align="center">
