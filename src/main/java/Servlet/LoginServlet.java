@@ -37,11 +37,11 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
         }catch (SQLException ex){
             ex.printStackTrace();
         }
-        response.setContentType("text/html;charset=utf-8");
+        //response.setContentType("text/html;charset=utf-8");
         if(flag){
             HttpSession session = request.getSession();
             session.setAttribute("email", email);
-            request.getRequestDispatcher("/index_login.jsp").forward(request,response);
+            request.getRequestDispatcher("/show_all_product").forward(request,response);
         }else {
             request.getRequestDispatcher("/index.jsp").forward(request,response);
         }

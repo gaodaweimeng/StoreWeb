@@ -14,7 +14,7 @@ public class PlaceDAO {
         DataAccess dataAccess = new DataAccess();
         Connection con = dataAccess.getConnection();
         String Email = user.getEmail();
-        String sql = "select id,Place.email,place from Place,User where User.email=Place.email and Place.email='"+Email+"'";
+        String sql = "select Place.email,place from Place,User where User.email=Place.email and Place.email='"+Email+"'";
         Statement stmt=null;
         ResultSet rs=null;
         Place place;
@@ -48,7 +48,6 @@ public class PlaceDAO {
     public static Object tableToClass(ResultSet rs) throws Exception {
         // TODO Auto-generated method stub
         Place place = new Place();
-        place.setId(rs.getInt("id"));
         place.setEmail(rs.getString("email"));
         place.setPlace(rs.getString("place"));
         return place;

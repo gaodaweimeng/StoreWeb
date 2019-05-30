@@ -42,7 +42,9 @@
                 <br/>
                 <br/>
                 <br/>
+
                 <h2 class="form-signin-heading" align="center">注  册</h2>
+
 
                 <label for="email" class="sr-only">邮箱</label>
                 <input type="email" id="email" class="form-control" name="email" placeholder="name@domain.com" required autofocus>

@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 @SuppressWarnings("serial")
 public class Place implements Serializable {
-    private Integer id;
     private String email;
     private String place;
 
@@ -12,18 +11,8 @@ public class Place implements Serializable {
 
     public Place(Integer id, String email, String place){
         super();
-        this.id = id;
         this.email = email;
         this.place = place;
-    }
-
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getEmail() {

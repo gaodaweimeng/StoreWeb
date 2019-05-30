@@ -7,17 +7,15 @@
   登录界面
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="zh-CN">
+<html>
 <head>
     <meta charset="utf-8">
     <title>登录</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="static/css/login.css">
 </head>
-
 
 <body>
 <div class="container">
@@ -39,11 +37,6 @@
 
                 <label for="inputPassword" class="sr-only">密码</label>
                 <input type="password" id="inputPassword" name="password" class="form-control" placeholder="密码" required>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" value="remember-me">
-                        记住我 </label>
-                </div>
                 <br/>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
             </form>

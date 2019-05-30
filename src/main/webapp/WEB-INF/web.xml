@@ -31,11 +31,65 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>AddPlaceServlet</servlet-name>
+        <servlet-class>Servlet.AddPlaceServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddPlaceServlet</servlet-name>
+        <url-pattern>/add_place</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>ProductHandlerServlet</servlet-name>
         <servlet-class>Servlet.ProductHandlerServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ProductHandlerServlet</servlet-name>
         <url-pattern>/product_handler</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BuyProductServlet</servlet-name>
+        <servlet-class>Servlet.BuyProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BuyProductServlet</servlet-name>
+        <url-pattern>/buy_product</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteProductServlet</servlet-name>
+        <servlet-class>Servlet.DeleteProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteProductServlet</servlet-name>
+        <url-pattern>/delete_product</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ShowAllProductServlet</servlet-name>
+        <servlet-class>Servlet.ShowAllProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowAllProductServlet</servlet-name>
+        <url-pattern>/show_all_product</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SearchServlet</servlet-name>
+        <servlet-class>Servlet.SearchServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchServlet</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PriceSortServlet</servlet-name>
+        <servlet-class>Servlet.PriceSortServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PriceSortServlet</servlet-name>
+        <url-pattern>/price_sort</url-pattern>
     </servlet-mapping>
 </web-app>
