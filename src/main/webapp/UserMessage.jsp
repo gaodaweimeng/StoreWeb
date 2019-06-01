@@ -38,6 +38,10 @@
                 <button type="submit">添加地址</button>
             </form>
         </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="show_all_product"><span class="glyphicon glyphicon-home"></span>商店</a></li>
+            <li><a href="product_handler"><span class="glyphicon glyphicon-shopping-cart"></span>购物车</a></li>
+        </ul>
     </div>
 </nav>
 <div class="container">

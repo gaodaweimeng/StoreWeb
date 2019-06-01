@@ -45,11 +45,32 @@ public class PlaceDAO {
         return place_list;
     }
 
-    public static Object tableToClass(ResultSet rs) throws Exception {
-        // TODO Auto-generated method stub
+    private static Object tableToClass(ResultSet rs) throws Exception {
         Place place = new Place();
         place.setEmail(rs.getString("email"));
         place.setPlace(rs.getString("place"));
         return place;
     }
+
+    public void AddPlace(User user, String InputWord){
+
+        DataAccess dataAccess = new DataAccess();
+        Connection con = dataAccess.getConnection();
+        PreparedStatement pst;
+        String sql = "insert into Place(email, place) values(?, ?) ";
+
+        try{
+            con.setAutoCommit(false);
+            pst = con.prepareStatement(sql);
+            pst.setString(1, user.getEmail());
+            pst.setString(2, InputWord);
+            pst.executeUpdate();
+            con.commit();
+            pst.close();
+            con.close();
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+    }
+
 }

@@ -1,6 +1,7 @@
 package Servlet;
 
 import Bean.User;
+import Dao.PlaceDAO;
 import Util.DataAccess;
 
 import javax.servlet.ServletException;
@@ -21,29 +22,13 @@ public class AddPlaceServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        DataAccess dataAccess = new DataAccess();
-        Connection con = dataAccess.getConnection();
-
         request.setCharacterEncoding("utf-8");
-
         HttpSession session = request.getSession();
         User user = (User)session.getAttribute("User");
+        String InputWord = request.getParameter("addPlace");
 
-        PreparedStatement pst;
-        String sql = "insert into Place(email, place) values(?, ?) ";
-
-        try{
-            con.setAutoCommit(false);
-            pst = con.prepareStatement(sql);
-            pst.setString(1, user.getEmail());
-            pst.setString(2, request.getParameter("addPlace"));
-            pst.executeUpdate();
-            con.commit();
-            pst.close();
-            con.close();
-        }catch (SQLException ex){
-            ex.printStackTrace();
-        }
+        PlaceDAO placeDAO = new PlaceDAO();
+        placeDAO.AddPlace(user, InputWord);
         request.getRequestDispatcher("/findPlace").forward(request,response);
     }
 }

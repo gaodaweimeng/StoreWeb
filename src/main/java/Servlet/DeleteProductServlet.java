@@ -1,6 +1,7 @@
 package Servlet;
 
 import Bean.User;
+import Dao.ProductDAO;
 import Util.DataAccess;
 
 import javax.servlet.ServletException;
@@ -21,36 +22,13 @@ public class DeleteProductServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        DataAccess dataAccess = new DataAccess();
-        Connection con = dataAccess.getConnection();
-
         HttpSession session = request.getSession();
         User user = (User)session.getAttribute("User");
         String Email = user.getEmail();
         Integer ProductId = Integer.valueOf(request.getParameter("pid"));
-        String sql = "delete from StoreWeb.List where product_id='"+ProductId+"' and user_id='"+Email+"'";
-        PreparedStatement pst=null;
 
-        try{
-            pst = con.prepareStatement(sql);
-            pst.executeUpdate();
-            con.commit();
-        }catch (SQLException ex){
-            ex.printStackTrace();
-        }finally {
-            try {
-                assert pst != null;
-                pst.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            try {
-                con.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-
+        ProductDAO productDAO = new ProductDAO();
+        productDAO.DeleteProduct(ProductId,Email);
         request.getRequestDispatcher("/product_handler").forward(request,response);
     }
 }

@@ -24,6 +24,19 @@
     <link rel="stylesheet" type="text/css" href="static/css/index_login.css">
 </head>
 <body>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand">运动达人</a>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="findPlace"><span class="glyphicon glyphicon-user"></span><%=User.getEmail()%></a></li>
+            <li><a href="show_all_product"><span class="glyphicon glyphicon-home"></span>商店</a></li>
+        </ul>
+    </div>
+</nav>
+
 <div class="container">
     <table class="table table-hover">
         <thead>

@@ -3,14 +3,14 @@ package Bean;
 import java.io.Serializable;
 
 @SuppressWarnings("serial")
-public class List implements Serializable {
+public class ShopList implements Serializable {
     private String user_id;
     private Integer product_id;
     private Integer num;
 
-    public List(){}
+    public ShopList(){}
 
-    public List(String user_id, Integer product_id, Integer num){
+    public ShopList(String user_id, Integer product_id, Integer num){
         this.user_id = user_id;
         this.product_id = product_id;
         this.num = num;
